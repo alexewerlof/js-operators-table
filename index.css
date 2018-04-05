@@ -1,0 +1,90 @@
+body {
+	font-family: 'Courier New', Courier, monospace;
+	background-color: #EEE;
+	color: #222;
+}
+
+.expression {
+	text-align: center;
+}
+
+table {
+	border-spacing: 1px;
+}
+
+td {
+	width: 25px;
+    height: 25px;
+	border-radius: 3px;
+    background-color: white;
+	border: 2px solid #b1b1b1;
+	transition: background-color 300ms, border-color 100ms;
+}
+
+th.op {
+	vertical-align: bottom;
+}
+
+th.vertical-text {
+	transform: rotate(90deg);
+	display: block;
+}
+
+th.rotate {
+	height: 100px;
+	white-space: nowrap;
+}
+
+th.rotate > div {
+	transform: translate(8px, 33px) rotate(294deg);
+	width: 30px;
+}
+
+th.rotate > div > span {
+	border-bottom: 1px solid #ccc;
+	padding: 4px 5px;
+}
+
+.true {
+	background-color: #5bbe5b;
+    border-color: #0b6c0b;
+}
+
+.false {
+}
+
+td.selected {
+	border-color: red;
+}
+
+th.selected {
+	color: red;
+}
+
+button {
+	background-color: #333;
+	color: white;
+	border-radius: 0;
+	height: 3em;
+	padding: 0 1em;
+	border: none;
+	transition: background-color 300ms;
+}
+
+button.selected {
+	background: #777;
+}
+
+button:first-of-type {
+	border-top-left-radius: 50%;
+	border-bottom-left-radius: 50%;
+}
+
+button:last-of-type {
+	border-top-right-radius: 50%;
+	border-bottom-right-radius: 50%;
+}
+
+footer {
+	text-align: center;
+}

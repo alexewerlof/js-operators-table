@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="index.css">
+    <title>JS Equality Table</title>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <button
+                v-for="op in binOps"
+                :class="op === selectedOp && 'selected'"
+                @click="selectedOp = op">{{op.text}}</button>
+
+            <pre class="expression"><code>{{ expression }}</code></pre>
+        </header>
+        <table @mouseleave="selectedA = undefined, selectedB = undefined">
+            <thead>
+                <tr>
+                    <th class="op">{{selectedOp.text}}</th>
+                    <th v-for="(b, bi) in bVals"
+                        :class="{ rotate: true, selected: bi === selectedB }">
+                        <div>
+                            <span>{{b.text}}</span>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(a, ai) in aVals">
+                    <th :class="{ selected: ai === selectedA }">{{a.text}}</th>
+                    <td v-for="(b, bi) in bVals"
+                        :class="{true: table[ai][bi], false: !table[ai][bi], selected: ai === selectedA || bi === selectedB}"
+                        :title="stringify(table[ai][bi])"
+                        @mouseenter="selectedA = ai, selectedB = bi">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <footer>
+            Made in Sweden 🇸🇪 <a href="https://twitter.com/alexewerlof" target="_blank">@alexewerlof</a>
+        </footer>
+    </div>
+    <script type="module" src="./index.js"></script>
+</body>
+</html>
